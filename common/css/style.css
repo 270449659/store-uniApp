@@ -1,0 +1,30 @@
+.flex{
+	 display: flex; 	
+	 }
+.uni-view {
+    display: block;
+}	 
+.uni-flex{
+	display: flex;
+}	 
+.uni-row{
+	flex-direction: row;
+	}
+.flex-item {
+	width: 33.3%;
+	text-align: center;
+}
+
+.relative{
+	 position: relative;
+	}
+.absolute{
+	position: absolute;
+    }	 
+.pingFang-SC{
+	font-family:PingFang SC;
+}	
+.f-w-five-hundred{
+   font-weight:500;
+}
+.active{color:red;}
