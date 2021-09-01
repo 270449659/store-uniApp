@@ -3,25 +3,18 @@ import request from '@/common/request.js'
 
 const webUrl = localConfig.websiteUrl
 
+//商品详情
 function getGoodsInfo(o){
-	return new Promise((resolve, reject) => {
-		uni.request({
-			url: webUrl + 'App.Goods.GoodsDetailActionApi',		
-			method: 'POST',
-			data: o,
-			header: {
-				'Content-Type':'application/x-www-form-urlencoded',
-			},
-			success: (res) => {
-				if(res.data.ret ===200){
-					resolve(res.data.data);
-				}else{
-					uni.showToast({title:res.data.error_desc,icon:'none'});
-				}
-				
+	return new Promise((reslove, reject) => {
+		request.post(webUrl + 'App.Goods.GoodsDetailActionApi',o).then(res=>{
+			if(res.ret ===200){
+				reslove(res.data);
+			}else{
+				uni.showToast({title:res.msg,icon:'none'});
 			}
 		})
 	})
+	
 }
 function getGoodsComment(o){
 	return new Promise((reslove, reject) => {
@@ -32,44 +25,23 @@ function getGoodsComment(o){
 }
 function getGoodsNavList(o){
 	return new Promise((reslove, reject) => {
-		uni.request({
-			url: webUrl + 'App.Category.categorylistNavListApi',
-			method: 'POST',
-			data: o,
-			header: {
-				//'Content-Type': 'application/json',
-				"Content-Type": "application/x-www-form-urlencoded",
-				'accesstoken': uni.getStorageSync('token'),
-				'token': uni.getStorageSync('token'),
-				'user_id': uni.getStorageSync('user_id')
-			},
-			success: (res) => {
-				reslove(res.data)
+		request.post(webUrl + 'App.Category.categorylistNavListApi',o).then(res=>{
+		
+			if(res.ret ===200){
+				reslove(res.data);
+			}else{
+				uni.showToast({title:res.msg,icon:'none'});
 			}
 		})
-		
 	})
 }
 
-
+//商品列表
 function getGoodsList(o){
 	return new Promise((reslove, reject) => {
-		uni.request({
-			url: webUrl + 'App.Category.categorylistGoodsListApi',
-			method: 'POST',
-			data: o,
-			header: {
-				//'Content-Type': 'application/json',
-				"Content-Type": "application/x-www-form-urlencoded",
-				'accesstoken': uni.getStorageSync('token'),
-				'token': uni.getStorageSync('token'),
-				'user_id': uni.getStorageSync('user_id')
-			},
-			success: (res) => {
-				reslove(res.data)
-			}
+		request.post(webUrl + 'App.Category.categorylistGoodsListApi',o).then(res=>{
+			reslove(res.data)
 		})
-		
 	})
 }
 

@@ -2,19 +2,21 @@
 <view  class="product-attr-modal">
 	<view class="main">
 		<view class="header flex">
-			<view>
+			<view class="header-box">
 				<img alt="商品图" :src="productAttrData.goods_image" class="avt" id="popupImg" ptag="7001.1.239" />
-				<view v-if="productAttrData.current_price_state" class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price}}</em></view>
-				<view v-else class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price[0]}}</em><span class="price_decimals">.{{productAttrData.goods_price[1]}}</span></view>
-				<view class="stock" id="stock"><span></span></view>
-				<view v-if="attrName.length" class="prop" id="popupSkuChoose">
-				   <span  class="prop-span">已选</span>
-					<span v-for="(item,index) in attrName" :key="index">
-					{{item.attrs}},
-					</span>
-					x{{curGoodsNum}}
-				</view>	
-				<view v-else class="prop" id="popupSkuChoose"><span  class="prop-span">已选</span><span>{{curGoodsNum}}件</span></view> 
+				<view class="header-right">
+					<view v-if="productAttrData.current_price_state" class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price}}</em></view>
+					<view v-else class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price[0]}}</em><span class="price_decimals">.{{productAttrData.goods_price[1]}}</span></view>
+					<view class="stock" id="stock"><span></span></view>
+					<view v-if="attrName.length" class="prop" id="popupSkuChoose">
+					   <span  class="prop-span">已选</span>
+						<span v-for="(item,index) in attrName" :key="index">
+						{{item.attrs}},
+						</span>
+						x{{curGoodsNum}}
+					</view>	
+					<view v-else class="prop" id="popupSkuChoose"><span  class="prop-span">已选</span><span>{{curGoodsNum}}件</span></view> 
+				</view>
 			</view>
 			<view  @click="onClose" class="close" id="popupClose">X</view>
 		</view><!-- header end -->
@@ -203,7 +205,7 @@ export default{
 				padding: 0 0 0 230rpx;
 				align-items: flex-end;
 				text-align: left;
-				margin-bottom: 18rpx;
+				margin:28rpx;
 				.avt {
 				    position: absolute;
 				    left: 18rpx;

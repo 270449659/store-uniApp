@@ -29,8 +29,8 @@ const actions = {
 		})
 		
 	},
-	setHome({ commit }){
-		apiHome.getHomes().then(res =>{
+	setHome({ commit },o){
+		apiHome.getHomes(o).then(res =>{
 			commit(GET_HOME_INFO,res)
 		})
 		

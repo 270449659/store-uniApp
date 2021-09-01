@@ -130,8 +130,6 @@ const mutations = {
 const actions = {
 	
 	setCartList({ commit }, o){
-		var a=o;
-		console.log('212',a)
 		apiShopping.getCartList(o).then(res => {
 			commit('SET_CART_LIST',res)
 			//console.log('setCartList res',res)

@@ -82,7 +82,7 @@
 			  this.isLogin=this.$isLogin();
 			  this.userId= uni.getStorageSync('user_id');
 			  this.token= uni.getStorageSync('token');
-			  if(this.isLogin){
+			  if(this.isLogin && this.userId){
 				this.goMemberInfo();
 			  }else{
 				 uni.navigateTo({
@@ -94,10 +94,7 @@
 		methods: {
 			goMemberInfo(){
 				this.$store.dispatch('setMemberInfo', {	  
-		           platform:'H5',
-				   user_id:this.userId,
-				   token:this.token,
-				   accesstoken:this.token
+		      			  
 				})
 			},
              outer(url){

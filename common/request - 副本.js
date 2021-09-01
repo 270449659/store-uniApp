@@ -19,6 +19,19 @@ const errorPrompt = (err) => {
 }
 
 request.interceptors.request.use((request) => {
+	//data.app_key = 'wolf100000001'
+	//data.format = 'JSON'
+	// data.api_version = '2.0'
+	// data.timestamp = formatTime(null, '-')
+	// data.req_source = 'app'
+	// data.token = localStorage.getItem('token') || ''
+	// data.user_id = localStorage.getItem('user_id') || ''
+	// if (data.user_id === '') {
+	//   delete data.user_id
+	// }
+	//data.platform = 'H5'
+	//const dataStr = object2String(data)
+	//data.sign = MD5.hash('ANDYJJ' + dataStr + 'I4MoPIPaVCc8M5fnfruLBd').toUpperCase()
 	let Data={
 		app_key:'wolf100000001', 	       
 		format :'JSON',
@@ -26,26 +39,23 @@ request.interceptors.request.use((request) => {
 		timestamp:formatTime(null, '-'),
 		req_source:'app',
 		platform:'H5',
-		user_id:uni.getStorageSync('user_id') || '',
-	    token:uni.getStorageSync('token') || '',
-		accesstoken:uni.getStorageSync('token') || '',
+		//user_id:uni.getStorageSync('user_id'),
+	   // token:uni.getStorageSync('token'),
+		//accesstoken:uni.getStorageSync('token'),
 	};
-	if (Data.user_id === '') {
-	    delete Data.user_id
-	  }
-	  //console.log('Data',Data)
+	
+	//454B94C9E0EC5B561F08391B39103154
 	request.body=Object.assign({},request.body,Data);
 	const dataStr = object2String(request.body)
-	request.body.sign = MD5.hash('ANDYJJ' + dataStr + 'I4MoPIPaVCc8M5fnfruLBd').toUpperCase()
 	setTimeout(function () {
-	//   
+	   request.body.sign = MD5.hash('ANDYJJ' + dataStr + 'I4MoPIPaVCc8M5fnfruLBd').toUpperCase()
 	}, 1100);
 	
 	console.log('o',request.body)
-	//console.log('dataStr',dataStr)
+	console.log('dataStr',dataStr)
 	
 	request.timeout = 30000;
-	request.headers = {
+	request.header = {
 	    //'Content-Type': 'application/json',
 		'Content-Type':'application/x-www-form-urlencoded',
 		//'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8',

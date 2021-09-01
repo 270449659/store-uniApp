@@ -118,10 +118,8 @@ function getCartAddFast(o){
 	return new Promise((reslove, reject) => {
 		request.post(webUrl + 'App.Cart.goodsAddCartFastApi',o).then(res=>{
 			if(res.ret==200){
-			   reslove(res.data)
-			   
-			}else if(res.ret==403){
-				
+			   reslove(res.data)	   
+			}else if(res.ret==403){		
 				uni.showModal({
 				    title: '没有登录',
 				    content: '',

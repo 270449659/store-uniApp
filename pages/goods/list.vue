@@ -44,7 +44,7 @@
 				</view>
 			</view>  <!--search-filter end-->
 	<!-- {{goodsLists.data}} -->
-		 <view class="search-product uni-flex" v-if="goodsLists.data">
+		 <view class="search-product flex" v-if="goodsLists.data">
 				<view @click="open(item.id)"  class="product-item"  v-for="item in goodsLists.data" >
 				  <view class="item-photo">
 					<img :src="item.list_pic_url" />

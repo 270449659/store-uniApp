@@ -81,19 +81,19 @@
 			    title: '加载中'
 			});
 			this.$store.dispatch('setHome',{
-				  platform:'H5',
-				  // user_id:this.userId,
-				  // token:this.token,
-				  // accesstoken:this.token,
-				  user_id:3,
-				  token:'c6ff849e7732d0c53141c04c65769365',
-				  accesstoken:'c6ff849e7732d0c53141c04c65769365',
-				  app_key: 'wolf100000001',
-				  format: 'JSON',
-				  api_version: '2.0',
-				  timestamp:this.times,
-				  req_source: 'h5',
-				  sign: '14E7AD8C354C11A8CE0F0B8A98337F82',
+				  // platform:'H5',
+				  // // user_id:this.userId,
+				  // // token:this.token,
+				  // // accesstoken:this.token,
+				  // user_id:3,
+				  // token:'c6ff849e7732d0c53141c04c65769365',
+				  // accesstoken:'c6ff849e7732d0c53141c04c65769365',
+				  // app_key: 'wolf100000001',
+				  // format: 'JSON',
+				  // api_version: '2.0',
+				  // timestamp:this.times,
+				  // req_source: 'h5',
+				  // sign: '14E7AD8C354C11A8CE0F0B8A98337F82',
 				})
 			this.isLogin=this.$isLogin();	
 		},

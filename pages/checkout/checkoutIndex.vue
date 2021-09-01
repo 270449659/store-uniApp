@@ -202,7 +202,7 @@
 				  p_type: true, 
 				  o_time: undefined,
 				  inv_payee: '',
-				  tax: null,
+				  tax: '',
 				  tax_type: 'n',
 				  tax_num: '',
 				  ral: false,

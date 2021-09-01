@@ -311,6 +311,7 @@ export default{
 		this.isLogin=this.$isLogin();
 		this.userId= uni.getStorageSync('user_id');
 		this.token= uni.getStorageSync('token');
+		
 		this.goGoodsInfo(this.goods_id);//商品详情show
 		this.goGoodsComment(this.goodsId);//评论
 		if(this.isLogin){
@@ -529,7 +530,7 @@ export default{
 					user_id:this.userId,
 					token:this.token,
 					//property: propertys 
-					product_id: null
+					product_id: 0,
 				},)//加入购物车 e	 
 			}else{	
 				this.$store.commit('shopping/setCartAddFast',{
@@ -542,7 +543,7 @@ export default{
 					user_id:this.userId,
 					token:this.token,
 					//property: propertys 
-					product_id: null
+					product_id: 0,
 				},)//加入购物车 e	
 				  
 				// if(this.cartAddFast){

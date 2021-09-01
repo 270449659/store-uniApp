@@ -1,18 +1,18 @@
 import * as localConfig from '../local/config'
 import request from '@/common/request.js'
+import {formatTime} from '@/common/js/index.js'
 import MD5 from '@/common/md5.js'
 
 const webUrl = localConfig.websiteUrl
 //账号登录
 function getLogins(data){
-
   data.app_key = 'wolf100000001'
   data.format = 'JSON'
   data.api_version = '2.0'
   data.timestamp = formatTime(null, '-')
   data.req_source = 'app'
   // data.token = localStorage.getItem('token') || ''
-  // data.user_id = localStorage.getItem('user_id') || ''
+  data.user_id = localStorage.getItem('user_id') || ''
   if (data.user_id === '') {
     delete data.user_id
   }
@@ -45,7 +45,7 @@ function getLogins(data){
 }
 //账号登录 end
 
-//账号登录
+//用户中心
 function getMemberInfo(o){
 	return new Promise((reslove, reject) => {
 		request.post(webUrl + 'App.User.memberInfoApi',o).then(res=>{
@@ -82,28 +82,28 @@ function object2String(obj) {
   return objStr;
 }
 
-var formatTime = function (date, sep) {
-  if (sep === void 0) { sep = '/'; }
-  if (!date || date === null) {
-      date = new Date();
-  }
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hour = date.getHours();
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-  return ([year, month, day].map(formatNumber).join(sep) +
-      ' ' +
-      [hour, minute, second].map(formatNumber).join(':'));
-};
-/**
-* 格式化数值 - 个位数前导补零
-*
-* @param number n 数值
-* @author: crlang
-*/
-var formatNumber = function (n) {
-  var s = n.toString();
-  return s[1] ? s : '0' + s;
-};
+// var formatTime = function (date, sep) {
+//   if (sep === void 0) { sep = '/'; }
+//   if (!date || date === null) {
+//       date = new Date();
+//   }
+//   var year = date.getFullYear();
+//   var month = date.getMonth() + 1;
+//   var day = date.getDate();
+//   var hour = date.getHours();
+//   var minute = date.getMinutes();
+//   var second = date.getSeconds();
+//   return ([year, month, day].map(formatNumber).join(sep) +
+//       ' ' +
+//       [hour, minute, second].map(formatNumber).join(':'));
+// };
+// /**
+// * 格式化数值 - 个位数前导补零
+// *
+// * @param number n 数值
+// * @author: crlang
+// */
+// var formatNumber = function (n) {
+//   var s = n.toString();
+//   return s[1] ? s : '0' + s;
+// };

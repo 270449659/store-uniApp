@@ -30,37 +30,23 @@ var formatNumber = function (n) {
     return s[1] ? s : '0' + s;
 };
 
-/**
- * 对象转字符串
- * @param object obj 对象内容
- * @author: crlang
- */
 
-function object2String(obj) {
+export function object2String(obj) {
   var objStr = '';
-
-  if (_typeof2(obj) === 'object' && Object.getOwnPropertyNames(obj).length > 0) {
-    var objKeys = Object.getOwnPropertyNames(obj).sort();
-
-    for (var k in objKeys) {
-      var item = obj[objKeys[k]];
-
-      if (_typeof2(item) === 'object' && Object.getOwnPropertyNames(item).length > 0) {
-        item = object2String(item);
+  if (typeof obj === 'object' && Object.getOwnPropertyNames(obj).length > 0) {
+      var objKeys = Object.getOwnPropertyNames(obj).sort();
+      for (var k in objKeys) {
+          var item = obj[objKeys[k]];
+		  
+          if (typeof item === 'object' && Object.getOwnPropertyNames(item).length > 0) {
+              item = object2String(item);
+          }
+          objStr += objKeys[k] + item;
       }
-
-      objStr += objKeys[k] + item;
-    }
   }
-
   return objStr;
 }
-/**
- * 获取 url 参数值
- * @param string name 参数名称
- * @param string url url地址
- * @author: crlang
- */
+
 
 
 // var date=new Date();

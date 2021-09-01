@@ -16,24 +16,15 @@ function getCategoryList(o){
 }
 function getCategorySecondary(o){
 	return new Promise((reslove, reject) => {
-		let formdata = new FormData()
-		uni.request({
-			url: webUrl + 'App.Category.CategorySecondaryApi',
-			method: 'POST',
-			data: o,
-			header: {
-				//'Content-Type': 'application/json',
-				"Content-Type": "application/x-www-form-urlencoded",
-				'accesstoken': uni.getStorageSync('token'),
-				'token': uni.getStorageSync('token'),
-				'user_id': uni.getStorageSync('user_id')
-			},
-			success: (res) => {
-				reslove(res.data.data)
+		request.post(webUrl + 'App.Category.CategorySecondaryApi',o).then(res=>{
+			if(res.ret==200){
+			  reslove(res.data)
+			}else{
+				uni.showToast({ title: res.msg, icon: "none" });
 			}
 		})
-		
 	})
+	
 };
 export default {
 	getCategoryList,

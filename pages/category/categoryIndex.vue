@@ -116,8 +116,8 @@
 			// 	console.log('categoryList', this.categoryList) 
 			// },
 			// categorySecondary(){
-			// 	console.log('categorySecondary', this.categorySecondary) 
-			// }
+			//  	console.log('categorySecondary', this.categorySecondary) 
+			//  }
 		}
 	}
 </script>
