@@ -13,7 +13,9 @@
 		<view class="content">
 		    <!-- 轮播图 --><Banner></Banner><!-- 轮播图 -->
 			<!-- Menu --><Menu></Menu><!-- Menu end-->
+			<!-- 秒杀 --><Seckill></Seckill><!-- 秒杀 end-->
 			<!-- 品牌街 --><BrandStreet></BrandStreet><!-- 品牌街 end-->
+			
 			<!-- 商品 -->
 			<view class="home-product" >
 				<view class="productMenu uni-padding-wrap uni-common-mt">    
@@ -52,11 +54,14 @@
 	import Banner from '@/components/home/Banner'
 	import  Menu from '@/components/home/Menu'
 	import  BrandStreet from '@/components/home/BrandStreet'
+	import  Seckill from '@/components/home/Seckill'
+	
 	export default {
 		components: {
 			Banner,
 			Menu,
-			BrandStreet
+			BrandStreet,
+			Seckill
 		},
 		data() {
 			return {

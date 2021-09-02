@@ -491,6 +491,7 @@ export default{
 				});
 				return false;
 			}else{
+				console.log('1121')
 				if (this.goodsInfo.defaultSkuStore < this.number) {
 				    uni.showToast({
 					    title: '购买数大于库存',

@@ -3,7 +3,7 @@
 	<view class="main">
 		<view class="header flex">
 			<view class="header-box">
-				<img alt="商品图" :src="productAttrData.goods_image" class="avt" id="popupImg" ptag="7001.1.239" />
+				<image alt="商品图" :src="productAttrData.goods_image" class="avt" id="popupImg" ptag="7001.1.239" ></image>
 				<view class="header-right">
 					<view v-if="productAttrData.current_price_state" class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price}}</em></view>
 					<view v-else class="price" id="priceSale2"><span class="price_decimals">¥</span><em>{{productAttrData.goods_price[0]}}</em><span class="price_decimals">.{{productAttrData.goods_price[1]}}</span></view>
@@ -195,15 +195,15 @@ export default{
 			width: 100%;
 			z-index: 210;
 			max-height:1000rpx;
-			min-height: 900rpx;
+			min-height: 500rpx;
 			background-color: #fff;
 			border-top-left-radius: 12px;
 			border-top-right-radius: 12px;
-			overflow: hidden;
+			// overflow: hidden;
 			.header{
-				height: 218rpx;
+				height: 200rpx;
 				padding: 0 0 0 230rpx;
-				align-items: flex-end;
+				align-items: center;
 				text-align: left;
 				margin:28rpx;
 				.avt {
